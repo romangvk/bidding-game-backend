@@ -69,7 +69,7 @@ export const joinRoom = functions.https.onCall(
       .transaction((players: Room["players"]) => {
         if (!players) {
           return {
-            players: { [auth?.uid as string]: { name: data.name, order: 1 } },
+            [auth?.uid as string]: { name: data.name, order: 1 },
           };
         } else if (Object.keys(players).length < ROOM_MAX_SIZE) {
           if (Object.values(players).some((p) => p.name === data.name)) return;
