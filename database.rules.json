@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "lobbies": {
+      "$room": {
+        ".read": "auth.token.roomCode === $room",
+        "players": {
+          "$uid": {
+            "name": { ".read": false },
+            "order": { ".read": false }
+          }
+        }
+      }
+    },
+    "games": {
+      "$room": {
+        ".read": "auth.token.roomCode === $room",
+        "data": { ".read": false }
+      }
+    }
+  }
+}
